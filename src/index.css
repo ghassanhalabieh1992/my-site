@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3.1%;
+    --foreground: 0 0% 94.9%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 94.9%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 94.9%;
+    --primary: 72 100% 50%;
+    --primary-foreground: 0 0% 3.1%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 94.9%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 25.1%;
+    --accent: 72 100% 50%;
+    --accent-foreground: 0 0% 3.1%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 72 100% 50%;
+    --chart-1: 72 100% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.25rem;
+    --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 94.9%;
+    --sidebar-primary: 72 100% 50%;
+    --sidebar-primary-foreground: 0 0% 3.1%;
+    --sidebar-accent: 0 0% 14.9%;
+    --sidebar-accent-foreground: 0 0% 94.9%;
+    --sidebar-border: 0 0% 14.9%;
+    --sidebar-ring: 72 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  ::selection {
+    background: #D1FF00;
+    color: #080808;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D1FF00;
+}
+
+/* WhatsApp pulse animation */
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(209, 255, 0, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(209, 255, 0, 0); }
+}
+.whatsapp-pulse {
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+/* Ghost grid lines */
+.ghost-grid {
+  background-image: 
+    linear-gradient(rgba(64, 64, 64, 0) 0%, rgba(64, 64, 64, 0.08) 50%, rgba(64, 64, 64, 0) 100%);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
