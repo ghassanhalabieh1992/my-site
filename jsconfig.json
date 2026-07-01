@@ -20,12 +20,6 @@
     "node_modules",
     "dist",
     "src/components/ui",
-    "src/components/ProtectedRoute.jsx",
-    "src/lib",
-    "src/api",
-    "src/pages/Login.jsx",
-    "src/pages/Register.jsx",
-    "src/pages/ForgotPassword.jsx",
-    "src/pages/ResetPassword.jsx"
+    "src/lib"
   ]
 }
