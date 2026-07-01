@@ -1,3 +1,3 @@
-# See AGENTS.md
+# Nexora AI Portfolio
 
-Follow the instructions in `AGENTS.md`.
+React + Vite portfolio website. All content lives in `src/data/portfolio.js`.
