@@ -2,12 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { WHATSAPP_URL, WHATSAPP_DISPLAY, EMAIL, COMPANY_NAME } from "@/data/portfolio";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function ContactSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="relative py-24 md:py-32 bg-[#080808]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,10 +18,10 @@ export default function ContactSection() {
           className="mb-16"
         >
           <p className="font-mono text-[11px] tracking-[0.4em] text-[#D1FF00] mb-4 uppercase">
-            03 / DIRECT_LINK
+            {t.contact.label}
           </p>
           <h2 className="font-heading font-bold text-[#F2F2F2] text-3xl md:text-5xl tracking-tight">
-            Let's Build Something
+            {t.contact.title}
           </h2>
           <p className="font-mono text-[11px] tracking-[0.2em] text-[#D1FF00]/60 mt-3">
             {COMPANY_NAME.toUpperCase()}
@@ -43,20 +45,20 @@ export default function ContactSection() {
 
           <div className="space-y-4">
             <p className="font-mono text-sm text-[#404040]">
-              <span className="text-[#D1FF00]">$</span> echo "Got a project in mind?"
+              <span className="text-[#D1FF00]">$</span> echo "{t.contact.question1}"
             </p>
             <p className="font-mono text-sm text-[#F2F2F2]/70">
-              Got a project in mind?
+              {t.contact.question1}
             </p>
             <p className="font-mono text-sm text-[#404040]">
-              <span className="text-[#D1FF00]">$</span> echo "Let's discuss your vision over WhatsApp."
+              <span className="text-[#D1FF00]">$</span> echo "{t.contact.question2}"
             </p>
             <p className="font-mono text-sm text-[#F2F2F2]/70">
-              Let's discuss your vision over WhatsApp.
+              {t.contact.question2}
             </p>
             <div className="pt-4 flex items-center gap-3">
               <span className="font-mono text-sm text-[#D1FF00]">$</span>
-              <span className="font-mono text-sm text-[#F2F2F2]/70">START_CONVERSATION?</span>
+              <span className="font-mono text-sm text-[#F2F2F2]/70">{t.contact.ctaLabel}</span>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
@@ -64,7 +66,7 @@ export default function ContactSection() {
                 className="inline-flex items-center gap-2 bg-[#D1FF00] text-[#080808] font-mono text-xs tracking-[0.15em] uppercase px-6 py-3 hover:bg-[#D1FF00]/90 transition-all duration-300 ml-2"
               >
                 <MessageCircle size={14} />
-                YES
+                {t.contact.ctaButton}
               </a>
             </div>
           </div>
@@ -76,10 +78,10 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl"
+          className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl"
         >
           <div className="border border-[#404040]/15 p-5 group hover:border-[#D1FF00]/20 transition-colors">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#404040] mb-2">WHATSAPP</p>
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[#404040] mb-2">{t.contact.whatsappLabel}</p>
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -90,7 +92,7 @@ export default function ContactSection() {
             </a>
           </div>
           <div className="border border-[#404040]/15 p-5 group hover:border-[#D1FF00]/20 transition-colors">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#404040] mb-2">EMAIL</p>
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[#404040] mb-2">{t.contact.emailLabel}</p>
             <a
               href={`mailto:${EMAIL}`}
               className="font-mono text-sm text-[#F2F2F2]/70 group-hover:text-[#D1FF00] transition-colors"
@@ -99,10 +101,10 @@ export default function ContactSection() {
             </a>
           </div>
           <div className="border border-[#404040]/15 p-5 group hover:border-[#D1FF00]/20 transition-colors">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-[#404040] mb-2">STATUS</p>
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[#404040] mb-2">{t.contact.statusLabel}</p>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#D1FF00] animate-pulse" />
-              <span className="font-mono text-sm text-[#D1FF00]">Available for Projects</span>
+              <span className="font-mono text-sm text-[#D1FF00]">{t.contact.statusValue}</span>
             </div>
           </div>
         </motion.div>

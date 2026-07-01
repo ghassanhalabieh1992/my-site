@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { WHATSAPP_URL } from "@/data/portfolio";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function HeroSection({ heroImage }) {
   const containerRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleMouse = (e) => {
@@ -62,7 +64,7 @@ export default function HeroSection({ heroImage }) {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="font-mono text-[11px] tracking-[0.4em] text-[#D1FF00] mb-6 uppercase"
         >
-          00 / COGNITIVE_LAUNCH
+          {t.hero.label}
         </motion.p>
 
         <motion.h1
@@ -87,8 +89,7 @@ export default function HeroSection({ heroImage }) {
           transition={{ delay: 0.7, duration: 0.8 }}
           className="font-body text-[#F2F2F2]/50 text-base md:text-lg mt-8 max-w-xl mx-auto leading-relaxed"
         >
-          Building intelligent systems and crafting high-performance web experiences 
-          at the intersection of software engineering and artificial intelligence.
+          {t.hero.description}
         </motion.p>
 
         <motion.div
@@ -103,13 +104,13 @@ export default function HeroSection({ heroImage }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-[#D1FF00] text-[#080808] font-mono text-xs tracking-[0.15em] uppercase px-8 py-4 hover:bg-[#D1FF00]/90 transition-all duration-300"
           >
-            START_CONVERSATION
+            {t.hero.cta}
           </a>
           <button
             onClick={handleScrollDown}
             className="font-mono text-xs tracking-[0.15em] text-[#F2F2F2]/40 hover:text-[#D1FF00] transition-colors border border-[#404040] px-8 py-4 hover:border-[#D1FF00]/40"
           >
-            VIEW_WORK
+            {t.hero.viewWork}
           </button>
         </motion.div>
       </div>
@@ -121,7 +122,7 @@ export default function HeroSection({ heroImage }) {
         transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
       >
-        <span className="font-mono text-[10px] tracking-[0.3em] text-[#404040] uppercase">Scroll</span>
+        <span className="font-mono text-[10px] tracking-[0.3em] text-[#404040] uppercase">{t.hero.scroll}</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}

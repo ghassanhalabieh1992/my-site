@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function ProjectCard({ project, index }) {
   const [hovered, setHovered] = useState(false);
+  const { t, lang } = useLanguage();
+
+  const description = lang === 'pt-BR' && project.descriptionPt
+    ? project.descriptionPt
+    : project.description;
 
   return (
     <motion.div
@@ -55,13 +61,13 @@ export default function ProjectCard({ project, index }) {
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="font-mono text-[10px] tracking-[0.3em] text-[#404040] mb-2">
-                {String(index + 1).padStart(2, "0")} / PROJECT
+                {String(index + 1).padStart(2, "0")} / {t.projects.cardLabel}
               </p>
               <h3 className="font-heading font-bold text-[#F2F2F2] text-lg md:text-xl tracking-tight">
                 {project.title}
               </h3>
             </div>
-            {project.url && (
+            {project.url && project.url !== '#' && (
               <a
                 href={project.url}
                 target="_blank"
@@ -73,7 +79,7 @@ export default function ProjectCard({ project, index }) {
             )}
           </div>
           <p className="font-body text-sm text-[#F2F2F2]/40 mt-3 leading-relaxed line-clamp-2">
-            {project.description}
+            {description}
           </p>
         </div>
       </div>
